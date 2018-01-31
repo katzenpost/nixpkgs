@@ -2,7 +2,7 @@
 with lib;
 
 let
-  katzenpost-mailproxy = pkgs.callPackage ../../../../../pkgs/networking/katzenpost/mailproxy/default.nix {};
+  katzenpost-daemons = pkgs.callPackage ../../../../../pkgs/networking/katzenpost/daemons/default.nix {};
   cfg = config.services.katzenpost-mailproxy;
   dataDir = "/var/lib/katzenpost-mailproxy";
   confFile = pkgs.writeText "katzenpost-mailproxy.conf" ''
@@ -52,7 +52,7 @@ in
 
       serviceConfig = {
         Type        = "simple";
-        ExecStart   = "${katzenpost-mailproxy}/bin/mailproxy -f ${confFile}";
+        ExecStart   = "${katzenpost-daemons}/bin/mailproxy -f ${confFile}";
         Restart     = "always";
         PermissionsStartOnly = true;
         User        = "katzen-mailproxy";

@@ -2,7 +2,7 @@
 with lib;
 
 let
-  katzenpost-authority-nonvoting = pkgs.callPackage ../../../../../pkgs/networking/katzenpost/authority/nonvoting/default.nix {};
+  katzenpost-daemons = pkgs.callPackage ../../../../../pkgs/networking/katzenpost/daemons/default.nix {};
   cfg = config.services.katzenpost-authority-nonvoting;
   dataDir = "/var/lib/katzenpost-authority-nonvoting";
   confFile = pkgs.writeText "katzenpost-authority-nonvoting.conf" ''
@@ -52,7 +52,7 @@ in
 
       serviceConfig = {
         Type        = "simple";
-        ExecStart   = "${katzenpost-authority-nonvoting}/bin/nonvoting -f ${confFile}";
+        ExecStart   = "${katzenpost-daemons}/bin/nonvoting -f ${confFile}";
         Restart     = "always";
         PermissionsStartOnly = true;
         User        = "katzen-auth-nonvoting";

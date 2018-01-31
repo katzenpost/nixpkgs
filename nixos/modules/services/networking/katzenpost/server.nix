@@ -2,7 +2,7 @@
 with lib;
 
 let
-  katzenpost-server = pkgs.callPackage ../../../../../pkgs/networking/katzenpost/server/default.nix {};
+  katzenpost-daemons = pkgs.callPackage ../../../../../pkgs/networking/katzenpost/daemons/default.nix {};
   cfg = config.services.katzenpost-server;
   dataDir = "/var/lib/katzenpost-server";
   confFile = pkgs.writeText "katzenpost-server.conf" ''
@@ -52,7 +52,7 @@ in
 
       serviceConfig = {
         Type        = "simple";
-        ExecStart   = "${katzenpost-server}/bin/server -f ${confFile}";
+        ExecStart   = "${katzenpost-daemons}/bin/server -f ${confFile}";
         Restart     = "always";
         PermissionsStartOnly = true;
         User        = "katzen-server";

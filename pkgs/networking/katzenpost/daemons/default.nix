@@ -2,25 +2,25 @@
 { stdenv, buildGoPackage, fetchgit, fetchhg, fetchbzr, fetchsvn }:
 
 buildGoPackage rec {
-  name = "server-unstable-${version}";
-  version = "8fbe943d3835d592d13ad359ada2a289a86a9289";
+  name = "katzenpost-daemons-unstable-${version}";
+  version = "2018-01-31-1930";
 
   goPackagePath = "github.com/katzenpost/daemons";
-  subPackages = [ "server" ];
+  subPackages = [ "authority/nonvoting" "server" "mailproxy" ];
 
   src = fetchgit {
-    rev = "8fbe943d3835d592d13ad359ada2a289a86a9289";
     url = "https://github.com/katzenpost/daemons";
+    rev = "8fbe943d3835d592d13ad359ada2a289a86a9289";
     sha256 = "0mclz4pgac4sr95kxhgsanir4lcpimpdamgkfp6wa4fgpissxpbb";
   };
 
   goDeps = ./deps.nix;
 
   meta = {
-    description = "Katzenpost server -- Traffic analysis resistant messaging";
+    description = "Katzenpost -- Traffic analysis resistant messaging";
     homepage = "https://katzenpost.mixnetworks.org/";
     platforms = stdenv.lib.platforms.unix;
     license = stdenv.lib.licenses.agpl3;
-    maintainers = with stdenv.lib.maintainers; [ TealG ];
+    maintainers = with stdenv.lib.maintainers; [  ];
   };
 }
