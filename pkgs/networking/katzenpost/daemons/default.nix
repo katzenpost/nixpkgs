@@ -10,8 +10,8 @@ buildGoPackage rec {
 
   src = fetchgit {
     url = "https://github.com/katzenpost/daemons";
-    rev = "8fbe943d3835d592d13ad359ada2a289a86a9289";
-    sha256 = "0mclz4pgac4sr95kxhgsanir4lcpimpdamgkfp6wa4fgpissxpbb";
+    rev = "d34972c96e36a494925c52c78145cfd921f34525";
+    sha256 = "178rzkn20ir2kvsyzlr3wmj3zw2yixkqy6hxy1i7q7va4knw4wvw";
   };
 
   goDeps = ./deps.nix;
