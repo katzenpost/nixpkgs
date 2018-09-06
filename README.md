@@ -20,3 +20,13 @@ This generates 2 files: default.nix and deps.nix
 In this repository
 - update version, git rev & sha256 in default.nix
 - replace deps.nix with the newly generated one
+
+
+supported by
+============
+
+.. image:: https://katzenpost.mixnetworks.org/_static/images/eu-flag-tiny.jpg
+
+This project has received funding from the European Union’s Horizon 2020
+research and innovation programme under the Grant Agreement No 653497, Privacy
+and Accountability in Networks via Optimized Randomized Mix-nets (Panoramix).
